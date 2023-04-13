@@ -1,0 +1,5 @@
+apring.application:
+  name: service
+  
+server:
+  port: 8081

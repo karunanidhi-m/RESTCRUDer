@@ -1,0 +1,9 @@
+apring.application:
+  name: facade
+  
+cruder:
+  services:
+    backendService:
+      port: 8081
+      url: cruder/services/v1/
+      
