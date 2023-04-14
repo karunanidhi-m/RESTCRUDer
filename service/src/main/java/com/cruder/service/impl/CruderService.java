@@ -6,4 +6,5 @@ import reactor.core.publisher.Mono;
 
 public interface CruderService {
 	Mono<ServerResponse> create(String payload);
+	Mono<ServerResponse> retrieve(String payload);
 }

@@ -17,6 +17,7 @@ public class CruderRouterConfiguration {
 	public RouterFunction<ServerResponse> routes(CruderHandler cruderHandler) {
 		return RouterFunctions.route()
 				.POST("cruder/create", RequestPredicates.accept(MediaType.APPLICATION_JSON), cruderHandler::create)
+				.POST("cruder/retrieve", RequestPredicates.accept(MediaType.APPLICATION_JSON), cruderHandler::retrieve)
 				.build();
 	}
 }

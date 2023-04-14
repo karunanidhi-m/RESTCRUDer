@@ -1,9 +1,5 @@
 package com.cruder.app.facade.service.handler;
 
-import java.util.Objects;
-import java.util.Optional;
-
-import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
@@ -29,5 +25,13 @@ public class CruderHandler {
 							.flatMap(payload -> Mono.just(requestValidator.validate(payload)))
 							.flatMap(validationResult -> validationResult.getLeft() ? 
 									cruderServiceInvoker.create(validationResult.getMiddle()) : validationResult.getRight());
+	}
+	
+	public Mono<ServerResponse> retrieve(ServerRequest serverRequest) {
+		
+		return serverRequest.bodyToMono(String.class)
+							.flatMap(payload -> Mono.just(requestValidator.validate(payload)))
+							.flatMap(validationResult -> validationResult.getLeft() ? 
+									cruderServiceInvoker.retrieve(validationResult.getMiddle()) : validationResult.getRight());
 	}
 }

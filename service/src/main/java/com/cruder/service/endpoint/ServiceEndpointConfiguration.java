@@ -20,6 +20,7 @@ public class ServiceEndpointConfiguration {
 	public RouterFunction<ServerResponse> routes() {
 		return RouterFunctions.route()
 				.POST("cruder/services/v1/createService", RequestPredicates.accept(MediaType.APPLICATION_JSON), serviceHandlerConfiguration::create)
+				.POST("cruder/services/v1/retrieveService", RequestPredicates.accept(MediaType.APPLICATION_JSON), serviceHandlerConfiguration::retrieve)
 				.build();
 	}
 }
